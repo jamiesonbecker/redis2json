@@ -1,7 +1,5 @@
 # redis2json
 
-Dump Redis to a JSON doc
-
 This is a quick and dirty script that dumps redis into RAM and prints out 
 corresponding JSON.
 
