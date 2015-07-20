@@ -5,7 +5,7 @@ corresponding JSON.
 
 ## Uses
 
-you can pipe the output through gzip and send it to a file for a quick
+You can pipe the output through gzip and send it to a file for a quick
 non-redis data backup or export/migrate to another system.
 
 For example:
@@ -13,7 +13,7 @@ For example:
     ./redis_to_json.py | gzip > redis_backup.json.gz
 
 It's also nice for apps that you're putting on ice but don't want to lose the
-data for, since the Redis RDB files aren't as convenient.
+data for, since the Redis RDB files aren't always as convenient.
 
 
 ## Caveats and Notes
