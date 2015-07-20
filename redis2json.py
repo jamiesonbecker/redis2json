@@ -2,7 +2,6 @@
 
 from redis import StrictRedis as Redis 
 import json
-r = Redis()
 
 def u(s):
     # python 2.x only. see README
@@ -13,7 +12,7 @@ def u(s):
         return s
     return unicode(s, "utf-8", errors="ignore")
 
-def get(k):
+def get(r, k):
     if r.type(k) == 'string':
         return u(r.get(k))
     elif r.type(k) == 'set':
@@ -25,5 +24,7 @@ def get(k):
     else: # this is not complete
         raise Exception, "Please add support for %s" % r.type(k)
 
-results = dict([(k, get(k)) for k in  r.keys()])
-print json.dumps(results, sort_keys=True, indent=4, separators=(',', ': '))
+if __name__ == "__main__":
+    r = Redis()
+    results = dict([(k, get(r, k)) for k in  r.keys()])
+    print json.dumps(results, sort_keys=True, indent=4, separators=(',', ': '))
